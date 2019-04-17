@@ -2,7 +2,7 @@ require('dotenv').config();
 const { ApolloServer } = require('apollo-server');
 const typeDefs = require('./schema');
 const GraphQLLongInt = require('graphql-type-long');
-const rootQueryResolver = require('./resolvers/rootQueryResolver')
+const rootQueryResolver = require('./resolvers/rootQueryResolver');
 
 const resolvers = {
   Long: GraphQLLongInt,

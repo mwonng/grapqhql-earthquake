@@ -1,7 +1,7 @@
 require('dotenv').config();
 const test = require('ava');
 const axios = require('axios');
-const fetchFromSource = require('../resolvers/fetchFromSource');
+const rootQueryResolver = require('../resolvers/rootQueryResolver');
 
 test('API should be ready', async t => {
     let endpoint = process.env.ENDPOINT;
@@ -16,7 +16,7 @@ test('getFeatureCollection should return a FeatureCollection', async t => {
     let endpoint = process.env.ENDPOINT;
     let starttime = '2019-04-11T13:37:43';
     let endtime = '2019-04-12T13:37:43';
-    let result = await fetchFromSource.prefetchByTimeRange(null, {
+    let result = await rootQueryResolver.prefetchByTimeRange(null, {
         starttime,
         endtime,
     })
@@ -28,12 +28,12 @@ test('fetchResultByTime should return same length as the raw response', async t 
     let endpoint = process.env.ENDPOINT;
     let starttime = '2019-04-11T13:37:43';
     let endtime = '2019-04-11T14:37:43';
-    let result = await fetchFromSource.prefetchByTimeRange(null, {
+    let result = await rootQueryResolver.prefetchByTimeRange(null, {
         starttime,
         endtime,
     })
 
-    let formatedResult = await fetchFromSource.fetchResultByTime(null, {
+    let formatedResult = await rootQueryResolver.fetchResultByTime(null, {
         starttime,
         endtime,
     })

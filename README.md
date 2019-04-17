@@ -1,12 +1,12 @@
-# Earthquake GraphQL interface
+# Earthquake GraphQL API
 
 This project convert the RESTful API from [Earthquake](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php) to a GraphQL API.
 
-## requiremenet.
+## Requiremenet.
 - Node.js (version >= 10.0)
 - npm or yarn as package manager
 
-## Development.
+## Development
 run your local machine to install depnedencies
 
 ```bash
@@ -18,6 +18,8 @@ after depnedencies installed, run
 ```bash
 $ npm run dev # or yarn dev
 ```
+
+Connect to your GraphQL client to `localhost:4000` as endpoint.
 
 ## How to Query/Mutation in GraphQL
 Look query API [here](docs/query-api.md)

@@ -36,7 +36,11 @@ _Note: if endtime is not given, it will default to present time._
 ```
 ### Description:
 
-**this query fetch result between starttime and endtime. It will get all location during this period, for frontend filter request according to the requirement, you can save it into context or Redux/Mobx first and if user filling more condtion, your can filter the results and re-rendering to user again**
+According to the requirement, the city list need to be auto-complete if user select the time range. In this case, after time set, it need to load all locations as possible only by time range.
+
+After that, user can add more criteria to filter the result. so it doesn't need to call API again with more criteria, the results with time range can be reused in frontend.
+
+This query fetch result between **starttime** and **endtime**. It will get **ALL location** during this period, for frontend filter request according to the requirement, you can save it into context or Redux/Mobx first and if user filling more condtion, your can filter the results and re-rendering to user agai
 
 Search condition:
 - Location name: location name is in the `place` field.
@@ -45,7 +49,7 @@ Search condition:
 - Radius: radius is in the `place` field. e.g. 5km
 - Date range: earthquake time is the `time` in Unix formate which will better for compare in range.
 
-_considering the place field response have not unique string formate, we can not split radius and location name directly. You can use filter or fuzzy search to match part of the string to filter your result in frontend._
+_Considering the `place` field response have not unique string format, we can not split radius and location name directly from `place` (sonme response doesn't have radius or direction). You have to use filter or fuzzy search to match part of the string to filter your result in frontend._
 
 ### formated response :
 ```json
