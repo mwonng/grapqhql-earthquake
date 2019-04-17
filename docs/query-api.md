@@ -36,12 +36,16 @@ _Note: if endtime is not given, it will default to present time._
 ```
 ### Description:
 
-> this query fetch result between starttime and endtime. It will get all location during this period, for frontend filter, you can save it into context or Redux/Mobx to filter your result while user add more condition e.g.:
-- Location name
-- Magnitude Range
-- Has tsunami
-- Radius
-- Date range
+**this query fetch result between starttime and endtime. It will get all location during this period, for frontend filter request according to the requirement, you can save it into context or Redux/Mobx first and if user filling more condtion, your can filter the results and re-rendering to user again**
+
+Search condition:
+- Location name: location name is in the `place` field.
+- Magnitude Range: magnitude value is in the `magnitude` field
+- Has tsunami: tsunami value in the `hasTsunami` field.
+- Radius: radius is in the `place` field. e.g. 5km
+- Date range: earthquake time is the `time` in Unix formate which will better for compare in range.
+
+_considering the place field response have not unique string formate, we can not split radius and location name directly. You can use filter or fuzzy search to match part of the string to filter your result in frontend._
 
 ### formated response :
 ```json
@@ -65,13 +69,6 @@ _Note: if endtime is not given, it will default to present time._
 }
 
 ```
-### explaination:
-
-- location name is in the place field.
-- radius is in the place field.
-- time using Unix time to compare.
-
-considering the place field response have not unique string formate, we can not split radius and location name directly. You can use filter or fuzzy search to match part of the string to filter your result in frontend.
 
 
 ## Assistant Query

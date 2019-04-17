@@ -15,7 +15,6 @@ module.exports = {
 
         if (res.data) {
             let features = res.data.features.map( feature => {
-
                 return {
                     place      : feature.properties.place,
                     magnitude  : feature.properties.mag,

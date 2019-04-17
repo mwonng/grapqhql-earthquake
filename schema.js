@@ -4,7 +4,6 @@ module.exports = gql`
 scalar Long
 
 type Query {
-  hello: String
   fetchResultByTime(starttime: String!, endtime: String): [FormatedResult]
   prefetchByTimeRange(starttime: String!, endtime: String): FeatureCollection
 }
