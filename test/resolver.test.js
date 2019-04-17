@@ -19,9 +19,24 @@ test('getFeatureCollection should return a FeatureCollection', async t => {
     let result = await fetchFromSource.prefetchByTimeRange(null, {
         starttime,
         endtime,
-        "location": "Idyllwild",
-	    "radius": 12.2,
     })
     t.is(result.type, 'FeatureCollection');
     t.is(result.metadata.status, 200);
+})
+
+test('fetchResultByTime should return same length as the raw response', async t => {
+    let endpoint = process.env.ENDPOINT;
+    let starttime = '2019-04-11T13:37:43';
+    let endtime = '2019-04-11T14:37:43';
+    let result = await fetchFromSource.prefetchByTimeRange(null, {
+        starttime,
+        endtime,
+    })
+
+    let formatedResult = await fetchFromSource.fetchResultByTime(null, {
+        starttime,
+        endtime,
+    })
+
+    t.is(result.features.length, formatedResult.length);
 })

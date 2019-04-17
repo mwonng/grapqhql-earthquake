@@ -10,7 +10,7 @@ type Query {
 }
 
 type FormatedResult {
-    location: String
+    place: String
     magnitude: Float
     time: Long
     felt: Int
@@ -19,6 +19,8 @@ type FormatedResult {
     latitude: Float
     depth: Float
     radius: Float
+    location: String
+    direction: String
     hasTsunami: Boolean
 }
 
