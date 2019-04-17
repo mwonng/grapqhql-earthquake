@@ -8,20 +8,14 @@ You can change endpoint setting on `.env`
 
 ## Query API
 
-`prefetchByTimeRange(starttime: $starttime, endtime: $endtime)` : this query fetch result between starttime and endtime. It will get all location during this period, for frontend filter, you can save it into context or Redux/Mobx to filter your result while user add more condition e.g.:
-- Location name
-- Magnitude Range
-- Has tsunami
-- Radius
-- Date range
+ - `fetchResultByTime(starttime: $starttime, endtime: $endtime)`
+ - `prefetchByTimeRange(starttime: $starttime, endtime: $endtime)`
 
 _Note: if endtime is not given, it will default to present time._
 
 ## How to use this response:
 
-Schema fore query:
-
-formated result query:
+### formated result query:
 
 ```graphql
 {
@@ -40,7 +34,16 @@ formated result query:
 }
 
 ```
-formated response :
+### Description:
+
+> this query fetch result between starttime and endtime. It will get all location during this period, for frontend filter, you can save it into context or Redux/Mobx to filter your result while user add more condition e.g.:
+- Location name
+- Magnitude Range
+- Has tsunami
+- Radius
+- Date range
+
+### formated response :
 ```json
 {
     "data": {
@@ -72,7 +75,7 @@ considering the place field response have not unique string formate, we can not 
 
 
 ## Assistant Query
-its raw API from earthquake.usgs.gov, if you want to handle all detail from raw data, you can use this GraphQL query to get more detail.
+its raw API from earthquake.usgs.gov which match the structure, if you want to handle all detail from raw data, you can use this GraphQL query if you want to get more detail.
 
 ```graphql
 {
