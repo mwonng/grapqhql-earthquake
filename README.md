@@ -40,3 +40,5 @@ $ pm2 index.js --name "graphql-api"
 ```bash
 $ npm test # or yarn test
 ```
+
+## Note
